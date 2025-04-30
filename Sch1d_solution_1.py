@@ -143,7 +143,7 @@ plot_title = "Marche Ascendante avec E/Vo="+str(e)
 
 fig = plt.figure() # initialise la figure principale
 line, = plt.plot([], [])
-plt.ylim(0,13)
+plt.ylim(-10,13)
 plt.xlim(0,2)
 plt.plot(o,V,label="Potentiel")
 plt.title(plot_title)
@@ -151,7 +151,7 @@ plt.xlabel("x")
 plt.ylabel("Densité de probabilité de présence")
 plt.legend() #Permet de faire apparaitre la legende
 
-ani = animation.FuncAnimation(fig,animate,init_func=init, frames=nd, blit=False, interval=100, repeat=False)
+ani = animation.FuncAnimation(fig,animate,init_func=init, frames=nd, blit=False, interval=500, repeat=False)
 #file_name = 'paquet_onde_e='+str(e)+'.mp4'
 #ani.save(file_name, writer = animation.FFMpegWriter(fps=120, bitrate=5000))
 plt.show()
