@@ -14,20 +14,25 @@ def animate(j):
     line.set_data(o, final_densite[j,:]) #Crée un graphique pour chaque densite sauvegarde
     return line,
 
-dt=1E-7
+dt=1e-7
 dx=0.001
 nx=int(1/dx)*2
-nt=90000 # En fonction du potentiel il faut modifier ce parametre car sur certaines animations la particule atteins les bords
+nt=180000 # En fonction du potentiel il faut modifier ce parametre car sur certaines animations la particule atteins les bords
 nd=int(nt/1000)+1#nombre d image dans notre animation
 n_frame = nd
 s=dt/(dx**2)
-xc=0.6
-sigma=0.05
-A=1/(math.sqrt(sigma*math.sqrt(math.pi)))
-v0=-4000
-e=5#Valeur du rapport E/V0
-E=e*v0
+xc=0.4
+sigma=0.05 #Taille du paquet d'onde
+A=1/(math.sqrt(sigma*math.sqrt(math.pi))) #Normalisation de l'onde
+v0=-4000 #Potentiel
+e = (20/2)*(np.pi**2/0.1**2)/v0
+E = e*v0 + v0
+print(e)
+print(E)
 k=math.sqrt(2*abs(E))
+print(k)
+
+
 
 # v0=2
 # dt=1E-5
@@ -143,15 +148,15 @@ plot_title = "Marche Ascendante avec E/Vo="+str(e)
 
 fig = plt.figure() # initialise la figure principale
 line, = plt.plot([], [])
-plt.ylim(-10,13)
-plt.xlim(0,2)
+plt.ylim(-2,6)
+plt.xlim(0,4)
 plt.plot(o,V,label="Potentiel")
 plt.title(plot_title)
 plt.xlabel("x")
 plt.ylabel("Densité de probabilité de présence")
 plt.legend() #Permet de faire apparaitre la legende
 
-ani = animation.FuncAnimation(fig,animate,init_func=init, frames=nd, blit=False, interval=500, repeat=False)
+ani = animation.FuncAnimation(fig,animate,init_func=init, frames=nd, blit=False, interval=100, repeat=False)
 #file_name = 'paquet_onde_e='+str(e)+'.mp4'
 #ani.save(file_name, writer = animation.FFMpegWriter(fps=120, bitrate=5000))
 plt.show()

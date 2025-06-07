@@ -25,11 +25,10 @@ xc=0.4
 sigma=0.05 #Taille du paquet d'onde
 A=1/(math.sqrt(sigma*math.sqrt(math.pi))) #Normalisation de l'onde
 v0=-4000 #Potentiel
-h_bar= 1.054571817e-34 # Constante de planck de réduite
-#e = (1/2)*(pow((np.pi*h_bar)/0.1, 2)*v0) #Niveau d'énergie trouver analytiquement pour n = 1
-e = 1e-99
-E = e * v0 + v0 #energie cinétique
+e = (20/2)*(np.pi**2/0.1**2)/v0
+E = e*v0 + v0
 print(e)
+print(E)
 k=math.sqrt(2*abs(E))
 
 
@@ -40,10 +39,10 @@ V=np.zeros(nx)
 o = np.linspace(0, (nx - 1) * dx, nx)
 V = np.zeros(nx)
 #V[o >= 1] = v0  # Potentiel
-debut_puits = 0.7
+debut_puits = 0.8
 fin_puits = 0.9
 centre = (debut_puits+fin_puits)/2
-largeur = 0.2
+largeur = 0.1
 V[(o >= debut_puits) & (o<=fin_puits)] = v0 * np.exp(-((o[(o >= debut_puits) & (o <=fin_puits)]-centre)**2)/(2*largeur**2)) # Potentiel
 
 
