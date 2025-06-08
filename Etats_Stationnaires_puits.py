@@ -39,7 +39,7 @@ plt.plot(x,V,label="Potentiel")
 n_etats = 5 #Nombre d'états
 for i in range(n_etats):
     psi_n = psi[:, i]
-    psi_n = psi_n/(np.sqrt(np.sum(psi_n**2)*dx)) #Normalisation de l'onde
+    psi_n = psi_n/(np.sqrt(np.sum(psi_n**2)*dx)) #Normalisation de l'onde avec la somme des racines des psi carré (norme 2)
     plt.plot(x, psi_n**2*3+E[i],label=f"E{[i]}={E[i]}")
 
 
