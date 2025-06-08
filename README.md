@@ -7,3 +7,4 @@ Il a pour but d'étudier l'effet Ramsauer-Townsend et le programme a pour foncti
 3. Chercher les solutions de Schrödinger
 
 https://cahier-de-prepa.fr/mpi-champollion/download?id=772 (Formule de la transmission)
+https://github.com/mholtrop/QMPython/blob/master/Finite%20Well%20Bound%20States.ipynb (Inspiration pour la méthode pour déterminer les ondes stationnaires)
